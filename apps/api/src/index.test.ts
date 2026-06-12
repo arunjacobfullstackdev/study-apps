@@ -72,7 +72,7 @@ describe("api server", () => {
     await fetch(`${app.url}/test`);
 
     expect(logSpy).toHaveBeenCalledWith(
-      expect.stringMatching(/^GET \/test 200 in \d+ms$/),
+      expect.stringMatching(/^GET \/test 200 in \d+ms$/)
     );
 
     await app.close();
@@ -102,7 +102,7 @@ describe("api server", () => {
     requestHandler(req, res);
 
     expect(logSpy).toHaveBeenCalledWith(
-      expect.stringMatching(/^GET \/ 200 in \d+ms$/),
+      expect.stringMatching(/^GET \/ 200 in \d+ms$/)
     );
   });
 });

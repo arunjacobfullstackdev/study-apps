@@ -16,7 +16,7 @@ export const requestHandler = (req: IncomingMessage, res: ServerResponse) => {
     const method = req.method ?? "GET";
     const path = req.url ?? "/";
     console.log(
-      `${method} ${path} ${res.statusCode} in ${durationMs.toFixed(0)}ms`,
+      `${method} ${path} ${res.statusCode} in ${durationMs.toFixed(0)}ms`
     );
   });
 
@@ -27,7 +27,7 @@ export const requestHandler = (req: IncomingMessage, res: ServerResponse) => {
       status: "ok",
       method: req.method,
       url: req.url,
-    }),
+    })
   );
 };
 
