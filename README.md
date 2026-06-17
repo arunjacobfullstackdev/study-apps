@@ -138,6 +138,46 @@ Compose files used by these scripts:
 
 `docker:web:down` intentionally stops `api` first and `web` second before final cleanup.
 
+### Container Dev Orchestration
+
+Run Docker-based local development workflows from the repository root. These use
+bind mounts and run each app's `dev` script inside a container.
+
+- API dev:
+
+```sh
+pnpm docker:dev:api:up
+pnpm docker:dev:api:down
+```
+
+- Docs dev:
+
+```sh
+pnpm docker:dev:docs:up
+pnpm docker:dev:docs:down
+```
+
+- Web dev stack (automatically starts API dev first):
+
+```sh
+pnpm docker:dev:web:up
+pnpm docker:dev:web:down
+```
+
+- Check running Docker dev services and ports:
+
+```sh
+pnpm docker:dev:status
+```
+
+Compose files used by these scripts:
+
+- `compose.dev.api.yaml`
+- `compose.dev.docs.yaml`
+- `compose.dev.web.yaml`
+
+`docker:dev:web:down` intentionally stops `api` first and `web` second before final cleanup.
+
 ### Remote Caching
 
 > [!TIP]

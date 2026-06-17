@@ -1,0 +1,27 @@
+name: turborepo-api-dev
+
+services:
+  api:
+    image: node:22-bookworm-slim
+    working_dir: /workspace
+    environment:
+      HUSKY: "0"
+      PNPM_HOME: /pnpm
+      PNPM_STORE_DIR: /pnpm/store
+      PORT: "4000"
+      CHOKIDAR_USEPOLLING: "true"
+    command: >
+      sh -c "corepack enable &&
+      corepack prepare pnpm@9.0.0 --activate &&
+      pnpm install --frozen-lockfile &&
+      pnpm --filter api dev"
+    volumes:
+      - .:/workspace
+      - api_dev_node_modules:/workspace/node_modules
+      - api_dev_pnpm_store:/pnpm/store
+    ports:
+      - "4000:4000"
+
+volumes:
+  api_dev_node_modules:
+  api_dev_pnpm_store:

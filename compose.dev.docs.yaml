@@ -1,0 +1,29 @@
+name: turborepo-docs-dev
+
+services:
+  docs:
+    image: node:22-bookworm-slim
+    working_dir: /workspace
+    environment:
+      HUSKY: "0"
+      PNPM_HOME: /pnpm
+      PNPM_STORE_DIR: /pnpm/store
+      PORT: "3001"
+      HOSTNAME: "0.0.0.0"
+      CHOKIDAR_USEPOLLING: "true"
+      WATCHPACK_POLLING: "true"
+    command: >
+      sh -c "corepack enable &&
+      corepack prepare pnpm@9.0.0 --activate &&
+      pnpm install --frozen-lockfile &&
+      pnpm --filter docs dev"
+    volumes:
+      - .:/workspace
+      - docs_dev_node_modules:/workspace/node_modules
+      - docs_dev_pnpm_store:/pnpm/store
+    ports:
+      - "3001:3001"
+
+volumes:
+  docs_dev_node_modules:
+  docs_dev_pnpm_store:
