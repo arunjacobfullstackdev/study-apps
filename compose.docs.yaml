@@ -1,0 +1,12 @@
+name: turborepo-docs
+
+services:
+  docs:
+    build:
+      context: .
+      dockerfile: apps/docs/Dockerfile
+    environment:
+      PORT: "3001"
+      HOSTNAME: "0.0.0.0"
+    ports:
+      - "3001:3001"

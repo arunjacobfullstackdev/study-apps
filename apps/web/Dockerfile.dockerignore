@@ -1,0 +1,9 @@
+**/.DS_Store
+**/.eslintcache
+**/.git
+**/.next
+**/.pnpm-store
+**/.turbo
+**/coverage
+**/dist
+**/node_modules

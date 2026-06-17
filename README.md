@@ -105,6 +105,39 @@ pnpm exec turbo dev --filter=web
 pnpm exec turbo dev --filter=web
 ```
 
+### Container Orchestration
+
+Run all container workflows from the repository root.
+
+- API only:
+
+```sh
+pnpm docker:api:up
+pnpm docker:api:down
+```
+
+- Docs only:
+
+```sh
+pnpm docker:docs:up
+pnpm docker:docs:down
+```
+
+- Web stack (automatically starts API first):
+
+```sh
+pnpm docker:web:up
+pnpm docker:web:down
+```
+
+Compose files used by these scripts:
+
+- `compose.api.yaml`
+- `compose.docs.yaml`
+- `compose.web.yaml`
+
+`docker:web:down` intentionally stops `api` first and `web` second before final cleanup.
+
 ### Remote Caching
 
 > [!TIP]

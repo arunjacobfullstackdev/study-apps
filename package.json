@@ -8,7 +8,13 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "check-types": "turbo run check-types",
-    "prepare": "husky"
+    "prepare": "husky",
+    "docker:api:up": "docker compose -f compose.api.yaml up --build -d",
+    "docker:api:down": "docker compose -f compose.api.yaml down",
+    "docker:docs:up": "docker compose -f compose.docs.yaml up --build -d",
+    "docker:docs:down": "docker compose -f compose.docs.yaml down",
+    "docker:web:up": "docker compose -f compose.web.yaml up --build -d web",
+    "docker:web:down": "docker compose -f compose.web.yaml stop api && docker compose -f compose.web.yaml stop web && docker compose -f compose.web.yaml down --remove-orphans"
   },
   "devDependencies": {
     "husky": "^9.1.7",
