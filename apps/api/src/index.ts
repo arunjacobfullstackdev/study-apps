@@ -40,6 +40,6 @@ if (isMainModule) {
   const port = getPort();
   const server = createApiServer();
   server.listen(port, () => {
-    console.log(`API listening on http://localhost:${port}`);
+    console.log(`API listeningg on http://localhost:${port}`);
   });
 }
