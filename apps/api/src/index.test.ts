@@ -57,7 +57,7 @@ describe("api server", () => {
     expect(response.headers.get("content-type")).toContain("application/json");
     expect(payload).toEqual({
       method: "GET",
-      name: "api1",
+      name: "api",
       status: "ok",
       url: "/health",
     });
