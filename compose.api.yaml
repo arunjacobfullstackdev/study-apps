@@ -9,3 +9,14 @@ services:
       PORT: "4000"
     ports:
       - "4000:4000"
+
+  dotnet-api:
+    build:
+      context: .
+      dockerfile: apps/dotnet-api/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Production"
+      ASPNETCORE_URLS: "http://+:5050"
+      PORT: "5050"
+    ports:
+      - "5050:5050"

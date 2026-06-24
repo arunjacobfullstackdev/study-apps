@@ -1,0 +1,9 @@
+{
+  "name": "dotnet-shared",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "${DOTNET_BIN:-$HOME/.dotnet/dotnet} build dotnet-shared.csproj",
+    "test": "${DOTNET_BIN:-$HOME/.dotnet/dotnet} test ../dotnet-shared.tests/dotnet-shared.tests.csproj"
+  }
+}

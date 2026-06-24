@@ -24,6 +24,52 @@
         "cwd": "${workspaceFolder}"
       },
       "problemMatcher": []
+    },
+    {
+      "label": "dotnet-api: restore",
+      "type": "shell",
+      "command": "${env:HOME}/.dotnet/dotnet",
+      "args": ["restore", "dotnet.sln"],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "dotnet-api: build",
+      "type": "shell",
+      "command": "${env:HOME}/.dotnet/dotnet",
+      "args": ["build", "dotnet.sln"],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "dotnet-api: test",
+      "type": "shell",
+      "command": "${env:HOME}/.dotnet/dotnet",
+      "args": ["test", "dotnet.sln"],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "dotnet-api: run",
+      "type": "shell",
+      "command": "${env:HOME}/.dotnet/dotnet",
+      "args": [
+        "run",
+        "--project",
+        "apps/dotnet-api/dotnet-api.csproj",
+        "--urls",
+        "http://localhost:5050"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": "$msCompile"
     }
   ]
 }

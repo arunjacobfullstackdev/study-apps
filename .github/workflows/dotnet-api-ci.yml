@@ -1,0 +1,38 @@
+name: dotnet-api-ci
+
+on:
+  push:
+    paths:
+      - "apps/dotnet-api/**"
+      - "apps/dotnet-api.tests/**"
+      - "packages/dotnet-shared/**"
+      - "packages/dotnet-shared.tests/**"
+      - "dotnet.sln"
+      - ".github/workflows/dotnet-api-ci.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    name: Build and Test dotnet-api
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: "9.0.x"
+
+      - name: Restore solution
+        run: dotnet restore dotnet.sln
+
+      - name: Build solution
+        run: dotnet build dotnet.sln --configuration Release --no-restore
+
+      - name: Test solution
+        run: dotnet test dotnet.sln --configuration Release --no-build

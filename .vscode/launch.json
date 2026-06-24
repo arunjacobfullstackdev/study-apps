@@ -11,6 +11,26 @@
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}/apps/api/src/index.ts",
       "outFiles": ["${workspaceFolder}/**/*.js"]
+    },
+    {
+      "name": "Launch dotnet-api",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "dotnet-api: build",
+      "program": "${workspaceFolder}/apps/dotnet-api/bin/Debug/net9.0/dotnet-api.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/apps/dotnet-api",
+      "stopAtEntry": false,
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_URLS": "http://localhost:5050",
+        "DOTNET_ROOT": "/Users/arunjacobpackianathan/.dotnet",
+        "PATH": "/Users/arunjacobpackianathan/.dotnet:${env:PATH}"
+      },
+      "serverReadyAction": {
+        "action": "openExternally",
+        "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+      }
     }
   ]
 }

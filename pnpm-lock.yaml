@@ -92,6 +92,8 @@ importers:
         specifier: 5.9.2
         version: 5.9.2
 
+  apps/dotnet-api: {}
+
   apps/web:
     dependencies:
       '@repo/ui':
@@ -128,6 +130,8 @@ importers:
       typescript:
         specifier: 5.9.2
         version: 5.9.2
+
+  packages/dotnet-shared: {}
 
   packages/eslint-config:
     devDependencies:

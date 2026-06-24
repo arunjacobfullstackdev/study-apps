@@ -1,0 +1,8 @@
+**/.DS_Store
+**/.git
+**/.next
+**/.pnpm-store
+**/.turbo
+**/bin
+**/obj
+**/node_modules

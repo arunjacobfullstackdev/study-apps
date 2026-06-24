@@ -1,4 +1,11 @@
 {
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "dotnetAcquisitionExtension.existingDotnetPath": [
+    "/Users/arunjacobpackianathan/.dotnet/dotnet"
+  ],
+  "terminal.integrated.env.osx": {
+    "DOTNET_ROOT": "/Users/arunjacobpackianathan/.dotnet",
+    "PATH": "/Users/arunjacobpackianathan/.dotnet:${env:PATH}"
+  }
 }

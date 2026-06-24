@@ -17,9 +17,11 @@ This Turborepo includes the following packages/apps:
 ### Apps and Packages
 
 - `api`: a Node.js TypeScript app
+- `dotnet-api`: an ASP.NET Core Web API app
 - `docs`: a [Next.js](https://nextjs.org/) app
 - `web`: another [Next.js](https://nextjs.org/) app
 - `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
+- `dotnet-shared`: a .NET class library shared by `dotnet-api`
 - `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
 - `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
 
@@ -116,6 +118,13 @@ pnpm docker:api:up
 pnpm docker:api:down
 ```
 
+- Dotnet API only:
+
+```sh
+pnpm docker:dotnet-api:up
+pnpm docker:dotnet-api:down
+```
+
 - Docs only:
 
 ```sh
@@ -150,6 +159,13 @@ pnpm docker:dev:api:up
 pnpm docker:dev:api:down
 ```
 
+- Dotnet API dev:
+
+```sh
+pnpm docker:dev:dotnet-api:up
+pnpm docker:dev:dotnet-api:down
+```
+
 - Docs dev:
 
 ```sh
@@ -177,6 +193,17 @@ Compose files used by these scripts:
 - `compose.dev.web.yaml`
 
 `docker:dev:web:down` intentionally stops `api` first and `web` second before final cleanup.
+
+### Dotnet Commands
+
+Run these from the repository root:
+
+```sh
+pnpm dotnet:restore
+pnpm dotnet:build
+pnpm dotnet:test
+pnpm dotnet:run
+```
 
 ### Remote Caching
 

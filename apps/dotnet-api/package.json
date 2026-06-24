@@ -1,0 +1,11 @@
+{
+  "name": "dotnet-api",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "${DOTNET_BIN:-$HOME/.dotnet/dotnet} watch run --project dotnet-api.csproj --urls http://localhost:5050",
+    "build": "${DOTNET_BIN:-$HOME/.dotnet/dotnet} build dotnet-api.csproj",
+    "start": "${DOTNET_BIN:-$HOME/.dotnet/dotnet} run --project dotnet-api.csproj --urls http://localhost:5050",
+    "test": "${DOTNET_BIN:-$HOME/.dotnet/dotnet} test ../dotnet-api.tests/dotnet-api.tests.csproj"
+  }
+}
