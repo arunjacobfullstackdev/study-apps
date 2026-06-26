@@ -6,7 +6,39 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@v8
+        id: issues_script
         with:
           script: |
             const issue_number = context.issue.number || 1;
-            console.log(`issue_number: ${issue_number} for ${context.repo.owner}/${context.repo.repo}`);
+            console.log(`issue_number: ${issue_number}`);
+
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+
+            const issue = await github.rest.issues.get({
+              owner,
+              repo,
+              issue_number,
+            });
+            console.log(`issue: ${JSON.stringify(issue, null, 2)}`);
+
+            const comment = await github.rest.issues.createComment({
+              owner,
+              repo,
+              issue_number,
+              body: "Thank you for your contribution! We appreciate your support.",
+            });
+            console.log(`comment id: ${comment.data.id}`);
+
+            // Add a label to the issue
+            const label = await github.rest.issues.addLabels({
+              owner,
+              repo,
+              issue_number,
+              labels: [`for-review-${repo}`]
+            });
+
+            return comment.data.id;
+
+      - name: thanks output
+        run: echo 'comment id=${{ steps.issues_script.outputs.result }}'
