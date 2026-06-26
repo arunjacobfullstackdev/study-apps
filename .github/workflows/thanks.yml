@@ -5,10 +5,8 @@ jobs:
   thanks:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@v6
+      - uses: actions/github-script@v8
         with:
           script: |
-            const { Octokit } = require("@octokit/rest");
-            const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
-            const { data: user } = await octokit.rest.users.getAuthenticated();
-            console.log(`Thanks for using this workflow, ${user.login}!`);
+            const issue_number = context.issue.number || 1;
+            console.log(`issue_number: ${issue_number} for ${context.repo.owner}/${context.repo.repo}`);
